@@ -6,6 +6,7 @@ genrule(
     srcs = ["ParsePackageJSON.js"],
     cmd = "sed 's|__LIBRARY_LOCATION__|\"%s\"|' $SRC > $OUT" % (package_name(CONFIG.JS.PACKAGE_JSON)),
     outs = ["parse-package-json"],
+    tools = {"node": CONFIG.JS.NODE_TOOLCHAIN} if CONFIG.JS.NODE_TOOLCHAIN else {},
     binary = True,
     visibility = ["PUBLIC"]
 )
@@ -15,6 +16,7 @@ genrule(
     srcs = ["TSConfigTransformer.js"],
     cmd = "cp $SRC $OUT",
     outs = ["tsconfig-transformer"],
+    tools = {"node": CONFIG.JS.NODE_TOOLCHAIN} if CONFIG.JS.NODE_TOOLCHAIN else {},
     binary = True,
     visibility = ["//..."]
 )
@@ -24,6 +26,7 @@ genrule(
     srcs = ["JestConfigTransformer.js"],
     cmd = "cp $SRC $OUT",
     outs = ["jest-config-transformer"],
+    tools = {"node": CONFIG.JS.NODE_TOOLCHAIN} if CONFIG.JS.NODE_TOOLCHAIN else {},
     binary = True,
     visibility = ["//..."]
 )
@@ -33,6 +36,7 @@ genrule(
     srcs = ["ESBuildBundler.js"],
     cmd = "cp $SRC $OUT",
     outs = ["esbuild-bundler"],
+    tools = {"node": CONFIG.JS.NODE_TOOLCHAIN} if CONFIG.JS.NODE_TOOLCHAIN else {},
     binary = True,
     visibility = ["//..."]
 )
