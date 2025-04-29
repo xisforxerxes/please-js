@@ -9,6 +9,11 @@ tsc =
 [PluginDefinition]
 Name = js
 
+[PluginConfig "node_toolchain"]
+ConfigKey = NodeToolchain
+Inherit = true
+Optional = flase
+
 [PluginConfig "package_json"]
 ConfigKey = PackageJson
 Inherit = true
